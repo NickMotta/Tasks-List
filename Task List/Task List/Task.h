@@ -1,3 +1,5 @@
+#include <string>
+#include <ctime>
 using namespace std;
 
 class task {
@@ -5,18 +7,18 @@ class task {
     private:
         int taskID;
         DateTime dateCreated;
-        String taskTitle;
-        String taskBody;
+        string taskTitle;
+        string taskBody;
         int taskImportanceLibrary
     public:
         void setTaskId(int taskID);
         int getTaskId();
         void setDateCreated(DateTime dateCreated);
         DateTime getDateCreated();
-        void setTaskTitle(String taskTitle);
-        String getTaskTitle();
-        void setTaskBody(String taskBody);
-        String getTaskBody();
+        void setTaskTitle(string taskTitle);
+        string getTaskTitle();
+        void setTaskBody(string taskBody);
+        string getTaskBody();
         void setTaskImportanceLevel(int taskImportanceLevel);
         int getTaskImportanceLevel();
 
