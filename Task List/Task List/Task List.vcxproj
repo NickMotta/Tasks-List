@@ -116,6 +116,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Task.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
