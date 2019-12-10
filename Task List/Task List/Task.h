@@ -9,7 +9,7 @@ class task {
         DateTime dateCreated;
         string taskTitle;
         string taskBody;
-        int taskImportanceLibrary
+		int taskImportanceLibrary;
     public:
         void setTaskId(int taskID);
         int getTaskId();

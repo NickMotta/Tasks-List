@@ -115,7 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConfigParser.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Task.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConfigParser.cpp" />
+    <ClCompile Include="ConfigSetting.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
