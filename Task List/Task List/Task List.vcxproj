@@ -116,13 +116,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConfigParser.h" />
+    <ClInclude Include="FileParser.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Task.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigParser.cpp" />
-    <ClCompile Include="ConfigSetting.cpp" />
+    <ClCompile Include="FileParser.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
