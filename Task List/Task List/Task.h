@@ -2,19 +2,21 @@
 #include <ctime>
 using namespace std;
 
-class task {
+class Task {
 
     private:
         int taskID;
-        DateTime dateCreated;
+        time_t dateCreated;
         string taskTitle;
         string taskBody;
-		int taskImportanceLibrary;
+		int taskImportanceLevel;
     public:
-        void setTaskId(int taskID);
-        int getTaskId();
-        void setDateCreated(DateTime dateCreated);
-        DateTime getDateCreated();
+        Task();
+        Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel);
+        void setTaskID(int taskID);
+        int getTaskID();
+        void setDateCreated(time_t dateCreated);
+        time_t getDateCreated();
         void setTaskTitle(string taskTitle);
         string getTaskTitle();
         void setTaskBody(string taskBody);
