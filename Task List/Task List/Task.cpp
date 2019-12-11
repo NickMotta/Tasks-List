@@ -83,3 +83,13 @@ using namespace std;
     {
         return taskImportanceLevel;
     }
+
+    int Task::setTaskStatus(int taskStatus)
+    {
+        this->taskStatus = taskStatus
+    }
+
+    void Task::getTaskStatus()
+    {
+        return taskStatus;
+    }
