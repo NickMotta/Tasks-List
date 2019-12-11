@@ -9,14 +9,15 @@ using namespace std;
 class FileParser
 {
 private:
-	static string DATA_DIRECTORY;
+	/* This is a path object that is part of the filesystem library. */
+	fs::path DATA_DIRECTORY;
 
 public:
 	FileParser();
 	~FileParser();
 
 	/* Get a list of files at the base directory */
-	string* getBaseDirFiles();
+	string* getListOfFileNames();
 
 
 };
