@@ -51,7 +51,7 @@ using namespace std;
         list.remove_if(NotStartedTasks());
     }
     
-    void TaskList::addTask(Task task, TaskList listName)
+    void addTask(Task task, std::list<Task> list)
     {
         list.insert(list.begin(), task);
     }
