@@ -1,8 +1,10 @@
+#pragma once
 #include <string>
 #include <ctime>
 using namespace std;
 
-class Task {
+class Task
+{
 
     private:
         int taskID;
@@ -17,7 +19,7 @@ class Task {
           */
         int taskStatus;
     public:
-        Task();
+
         Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel);
         void setTaskID(int taskID);
         int getTaskID();
