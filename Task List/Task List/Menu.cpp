@@ -7,6 +7,10 @@
 
 using namespace std;
 
+Menu::Menu() {
+
+}
+
 int Menu::MainMenu() {
 
 

@@ -1,32 +1,4 @@
-﻿  FileParser.cpp
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\fileparser.cpp(30): error C3867: 'std::experimental::filesystem::v1::directory_entry::path': non-standard syntax; use '&' to create a pointer to member
-  Main.cpp
+﻿  Main.cpp
   Menu.cpp
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(5): error C2011: 'Task': 'class' type redefinition
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(5): note: see declaration of 'Task'
-  Task.cpp
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(17): error C2065: 'fileParser': undeclared identifier
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(17): error C2015: too many characters in constant
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(26): error C2065: 'fileParser': undeclared identifier
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(26): error C2015: too many characters in constant
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(88): error C2556: 'int Task::setTaskStatus(int)': overloaded function differs only by return type from 'void Task::setTaskStatus(int)'
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(32): note: see declaration of 'Task::setTaskStatus'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(87): error C2371: 'Task::setTaskStatus': redefinition; different basic types
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(32): note: see declaration of 'Task::setTaskStatus'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(90): error C2143: syntax error: missing ';' before '}'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(93): error C2556: 'void Task::getTaskStatus(void)': overloaded function differs only by return type from 'int Task::getTaskStatus(void)'
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(33): note: see declaration of 'Task::getTaskStatus'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.cpp(92): error C2371: 'Task::getTaskStatus': redefinition; different basic types
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(33): note: see declaration of 'Task::getTaskStatus'
-  TaskList.cpp
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.cpp(17): error C2039: 'GetSomething': is not a member of 'TaskList'
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.h(5): note: see declaration of 'TaskList'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.cpp(17): error C2039: 'GetSomethingElse': is not a member of 'TaskList'
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.h(5): note: see declaration of 'TaskList'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.cpp(24): error C2275: 'Task': illegal use of this type as an expression
-  c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\task.h(5): note: see declaration of 'Task'
-c:\users\nick\onedrive - salem state university\salem fall 2019\csc 279 - c and c++\group project\project code\task list\task list\task list\tasklist.cpp(24): error C2672: 'std::list<Task,std::allocator<_Ty>>::remove_if': no matching overloaded function found
-          with
-          [
-              _Ty=Task
-          ]
+Menu.obj : error LNK2001: unresolved external symbol "public: int __cdecl Menu::ViewTaskList(void)" (?ViewTaskList@Menu@@QEAAHXZ)
+C:\Users\Nick\OneDrive - Salem State University\Salem Fall 2019\CSC 279 - C and C++\Group Project\Project Code\Task List\Task List\x64\Release\Task List.exe : fatal error LNK1120: 1 unresolved externals

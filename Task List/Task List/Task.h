@@ -19,7 +19,7 @@ class Task
           */
         int taskStatus;
     public:
-
+		Task();
         Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel);
         void setTaskID(int taskID);
         int getTaskID();

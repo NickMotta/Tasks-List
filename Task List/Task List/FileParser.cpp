@@ -30,7 +30,7 @@ list<string>FileParser::getListOfFileNames(string directory)
 	
 	int directoryCounter;
 	for (auto &p : fs::directory_iterator(directory)) {
-		filesInDirectory.push_back(p);
+		cout << p << endl;
 	}
 
 	return filesInDirectory;
@@ -46,7 +46,10 @@ int FileParser::getNextTaskId()
 	*/
 
 	list<string> fileList = getListOfFileNames(this->DATA_DIRECTORY);
-
+	list<string>::iterator iterator;
+	for (iterator = fileList.begin(); iterator != fileList.end(); ++iterator) {
+		cout << *iterator << endl;
+	}
 
 	return 0;
 }

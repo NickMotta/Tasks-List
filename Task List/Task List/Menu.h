@@ -9,6 +9,8 @@ class Menu
 
 
 public:
+	
+	Menu();
 
 	/*
 	Prints out the main menu for the application
