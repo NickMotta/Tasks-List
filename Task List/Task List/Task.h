@@ -29,5 +29,7 @@ class Task {
         string getTaskBody();
         void setTaskImportanceLevel(int taskImportanceLevel);
         int getTaskImportanceLevel();
+        void setTaskStatus(int taskStatus);
+        int getTaskStatus();
 
 };

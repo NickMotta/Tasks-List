@@ -1,17 +1,27 @@
 #include <list>
 #include <iterator>
 #include <iostream>
-#include 'Task.h'
+#include "TaskList.h"
+#include <stdio.h>
 
 using namespace std;
 
-class TaskList()
-{
-    Task::list<Task> taskList;
+
+    std::list<Task> taskList;
+    std::list<Task>::iterator it = taskList.begin();
     
-    TaskList getCompletedTasks()
+    struct Pred
     {
-        
+       bool operator()(const TaskList& item) const
+       {
+          return item.GetSomething() == 42 && item.GetSomethingElse() == 314159;
+       }
+    };
+
+
+    TaskList getCompletedTasks(std::list<Task> list)
+    {
+        list.remove_if(Task.get);
     }
     
     TaskList getOngoingTasks()
@@ -24,9 +34,9 @@ class TaskList()
         
     }
     
-    void Task::addTask(Task task, TaskList listName)
+    void TaskList::addTask(Task task, TaskList listName)
     {
         
     }
-}
+
  
