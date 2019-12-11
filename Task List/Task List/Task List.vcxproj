@@ -118,11 +118,14 @@
     <ClInclude Include="FileParser.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TaskList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TaskList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <filesystem>
+#include <list>
 namespace fs = std::experimental::filesystem;
 
 #include "FileParser.h"
@@ -10,7 +11,10 @@ namespace fs = std::experimental::filesystem;
 FileParser::FileParser()
 {
 	//sets the data directory
-	this->DATA_DIRECTORY = fs::current_path() / "data";
+
+	fs::path directory = fs::current_path() / "data";
+	string test = (fs::current_path() / "data" ).string();
+
 
 }
 
@@ -19,21 +23,30 @@ FileParser::~FileParser()
 {
 }
 
-string * FileParser::getListOfFileNames()
+list<string>FileParser::getListOfFileNames(string directory)
 {
 	//create an array
-
+	list<string> filesInDirectory;
 	
 	int directoryCounter;
-	for (auto &p : fs::directory_iterator(this->DATA_DIRECTORY)) {
-		directoryCounter+= 1;
+	for (auto &p : fs::directory_iterator(directory)) {
+		filesInDirectory.push_back(p);
 	}
 
-	string* listOfFileNames = (string*)malloc( sizeof(string)) * directoryCounter);
+	return filesInDirectory;
 
-	for (auto &p : fs::directory_iterator(this->DATA_DIRECTORY)) {
-		//listOfFileNames.append(p.path());
-	}
+}
 
-	return nullptr;
+int FileParser::getNextTaskId()
+{
+	/*
+	1) grab the list of file names from the data directory
+	2) go through the directory list
+		2a) If the string contains 'task' then grab the int at the end of the '_'
+	*/
+
+	list<string> fileList = getListOfFileNames(this->DATA_DIRECTORY);
+
+
+	return 0;
 }

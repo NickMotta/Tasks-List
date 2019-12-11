@@ -6,6 +6,16 @@ using namespace std;
 
 int main()
 {
+
+	//program loop
+	while (true) {
+
+
+
+	}
+
+
+
 	fs::path path = fs::current_path();
 	path /= "data";
 	std::cout << fs::current_path() << std::endl;
@@ -18,9 +28,6 @@ int main()
 		directoryCounter += 1;
 	}
 
-	string listOfFileNames[directoryCounter];
-	for (auto &p : fs::directory_iterator(path)) {
-		listOfFileNames->append(p.path);
-	}
+	std::cout << directoryCounter << std::endl;
 	system("pause");
 }
