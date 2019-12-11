@@ -1,28 +1,13 @@
-#include <stdio.h>
 #include <string>
 #include <iostream>
-#include <fstream>	//used to read files
+#include <filesystem>
+namespace fs = std::experimental::filesystem;
 
-using namespace std;
-
-
-static string DATA_PATH = '';
-
-/*
-This function loads the tasks list from storage
-*/
-int loadTaskList() {
-	//grabs a list of files in the directory
-	ofstream 
-
-
-};
-
-
-int main() {
-
-
-
-
-	return 0;
-};
+int main()
+{
+	std::cout << fs::current_path() << std::endl;
+	//std::string path = "C:\\";
+	//for (auto & p : fs::directory_iterator(path))
+	//	std::cout << p << std::endl;
+	system("pause");
+}
