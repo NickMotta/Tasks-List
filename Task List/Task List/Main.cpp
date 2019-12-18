@@ -2,12 +2,52 @@
 #include <iostream>
 #include <filesystem>
 #include <typeinfo>
-#include "Menu.h"
 #include "Task.h"
 #include "TaskList.h"
 #include "FileParser.h"
 namespace fs = std::experimental::filesystem;
 using namespace std;
+
+/* Function returns a status code that can be interpreted where it's called */
+int createTask() {
+
+
+
+	return 0;	//no fault
+}	//end createTask
+
+
+/* Function returns a status code that can be interpreted where it's callled
+
+0 - DEFAULT, no errors
+1 - ERROR
+*/
+int MainMenu() {
+
+
+	string menuOptions = "1 - create task\t2 - view task list";
+	int choice;
+
+	cout << "Main Menu" << endl;
+	cout << menuOptions << endl;
+	cout << "--> ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+		CreateTask();
+		break;
+	case 2:
+		//this->ViewTaskList();
+		break;
+	}
+
+	return 0;
+}
+
+
+
 
 
 /*

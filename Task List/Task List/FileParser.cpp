@@ -45,6 +45,7 @@ list<string>FileParser::getListOfFileNames(string directory)
 
 TaskList FileParser::readTasksFromStorage()
 {
+	TaskList listToReturn = TaskList();
 	list<string> listOfFileNames = getListOfFileNames(DATA_DIRECTORY);
 
 	//Go through the list
@@ -68,13 +69,14 @@ TaskList FileParser::readTasksFromStorage()
 		//theoretically, we're at the end of the file....
 
 		//create the task object
-		Task newTask = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
-			
+		Task newTask = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus);
 
+		//push the new task into the task list.
+		listToReturn.addTask(newTask);
 
-	}
+	}	//end for loop
 
-	return TaskList();
+	return listToReturn;
 }// end readTasksFromStorage
 
 int FileParser::getNextTaskId()
