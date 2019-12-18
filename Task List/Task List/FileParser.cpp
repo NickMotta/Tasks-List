@@ -141,8 +141,9 @@ TaskList FileParser::getTaskList()
 	return tasks;
 }
 
-TaskList FileParser::writeTasksToStorage()
+int FileParser::writeTasksToStorage()
 {
+    TaskList list = TaskList();
     list<string> listOfFileNames = getListOfFileNames(DATA_DIRECTORY);
     
     for (auto const& fileName : listOfFileNames) {
@@ -150,19 +151,29 @@ TaskList FileParser::writeTasksToStorage()
     //open the file
     ofstream offile;
     offile.open(fileName);
+        
+    //Checks if file is open
+    if(offile.is_open()){
+        //variables for the object types
+        int taskID, taskImportanceLevel, taskStatus;
+        time_t dateCreated;
+        string taskTitle, taskBody;
 
-    //variables for the object types
-    int taskID, taskImportanceLevel, taskStatus;
-    time_t dateCreated;
-    string taskTitle, taskBody;
-
-    offile >> taskID;
-    offile >> dateCreated;
-    offile >> taskTitle;
-    offile >> taskBody;
-    offile >> taskImportanceLevel;
-    offile >> taskStatus;
+        offile >> taskID;
+        offile >> dateCreated;
+        offile >> taskTitle;
+        offile >> taskBody;
+        offile >> taskImportanceLevel;
+        offile >> taskStatus;
     
-    Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
+        Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
+        
+        list.addTask(newTask)
+        return 0;
     }
+    //Returns error for file isnt open
+    return 1;
+        
+    }
+    
 }
