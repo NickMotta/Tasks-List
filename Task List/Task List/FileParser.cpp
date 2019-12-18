@@ -169,6 +169,9 @@ int FileParser::writeTasksToStorage()
         Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
         
         list.addTask(newTask)
+        
+        offile.close();
+        
         return 0;
     }
     //Returns error for file isnt open
@@ -176,4 +179,27 @@ int FileParser::writeTasksToStorage()
         
     }
     
+}
+
+Task FileParser::writeTask(Task task)
+{
+    //open the file
+    ofstream offile;
+    offile.open(fileName);
+        
+        //variables for the object types
+        int taskID, taskImportanceLevel, taskStatus;
+        time_t dateCreated;
+        string taskTitle, taskBody;
+
+        offile >> taskID;
+        offile >> dateCreated;
+        offile >> taskTitle;
+        offile >> taskBody;
+        offile >> taskImportanceLevel;
+        offile >> taskStatus;
+    
+        Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
+        
+        return task;
 }
