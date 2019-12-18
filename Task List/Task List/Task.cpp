@@ -14,20 +14,23 @@ using namespace std;
      */
     Task::Task()
     {
+		this->taskID = 500;
         //taskID = fileParser.getSetting('next_task_id');
-        dateCreated = clock();
-        taskTitle = ' ';
-        taskBody = ' ';
-        int taskImportanceLevel = 0;
+		this->dateCreated = clock();
+		this->taskTitle = ' ';
+		this->taskBody = ' ';
+		this->taskImportanceLevel = 0;
+		this->taskStatus = 0;
     }
     
-    Task::Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel)
+    Task::Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel, int taskStatus)
     {
         //this->taskID = fileParser.getSetting('next_task_id');
         this->dateCreated = dateCreated;
         this->taskTitle = taskTitle;
         this->taskBody = taskBody;
         this->taskImportanceLevel = taskImportanceLevel;
+		this->taskStatus = taskStatus;
     }
     
     /**
@@ -93,3 +96,4 @@ using namespace std;
     {
         return taskStatus;
     }
+

@@ -28,7 +28,8 @@ int Menu::MainMenu() {
 		this->CreateTask();
 		break;
 	case 2:
-		this->ViewTaskList();
+		//this->ViewTaskList();
+		break;
 	}
 
 	return 0;

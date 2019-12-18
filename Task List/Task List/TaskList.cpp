@@ -7,9 +7,6 @@
 
 using namespace std;
 
-
-    std::list<Task> taskList;
-    std::list<Task>::iterator it = taskList.begin();
     
     struct CompletedTasks
     {
@@ -36,24 +33,29 @@ using namespace std;
     };
 
 
-    TaskList getCompletedTasks(std::list<Task> list)
+	TaskList::TaskList()
+	{
+	}
+
+	TaskList TaskList::getCompletedTasks()
     {
-        list.remove_if(CompletedTasks());
+        //list.remove_if(CompletedTasks());
     }
     
-    TaskList getOngoingTasks(std::list<Task> list)
+    TaskList TaskList::getOngoingTasks()
     {
-        list.remove_if(OngoingTasks());
+        //list.remove_if(OngoingTasks());
     }
     
-    TaskList getNotStartedTasks(std::list<Task> list)
+    TaskList TaskList::getNotStartedTasks()
     {
-        list.remove_if(NotStartedTasks());
+        //list.remove_if(NotStartedTasks());
     }
     
-    void addTask(Task task, std::list<Task> list)
+    void TaskList::addTask(Task task)
     {
-        list.insert(list.begin(), task);
+
+		this->taskList.push_back(task);
     }
 
  

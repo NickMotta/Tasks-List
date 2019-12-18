@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include <list>
+#include <fstream>
 namespace fs = std::experimental::filesystem;
 
 #include "FileParser.h"
@@ -25,17 +26,56 @@ FileParser::~FileParser()
 
 list<string>FileParser::getListOfFileNames(string directory)
 {
-	//create an array
+	//create a list to store the file names.
 	list<string> filesInDirectory;
-	
-	int directoryCounter;
-	for (auto &p : fs::directory_iterator(directory)) {
-		cout << p << endl;
-	}
 
+	/* Go through each file name in the given directory. Trim the path name out of the file name, store file name in list */
+	for (const auto &entry : fs::directory_iterator(directory)) {
+		//gets the current path to the item
+		string path = entry.path().string();
+		//trims the unecessary characters from it.
+		filesInDirectory.push_back(path.substr(path.rfind('\\') + 1));
+	}
+	
 	return filesInDirectory;
 
 }
+
+
+
+TaskList FileParser::readTasksFromStorage()
+{
+	list<string> listOfFileNames = getListOfFileNames(DATA_DIRECTORY);
+
+	//Go through the list
+	for (auto const& fileName : listOfFileNames) {
+
+		//open the file
+		ifstream infile;
+		infile.open(fileName);
+
+		//variables for the object types
+		int taskID, taskImportanceLevel, taskStatus;
+		time_t dateCreated;
+		string taskTitle, taskBody;
+
+		infile >> taskID;
+		infile >> dateCreated;
+		infile >> taskTitle;
+		infile >> taskBody;
+		infile >> taskImportanceLevel;
+		infile >> taskStatus;
+		//theoretically, we're at the end of the file....
+
+		//create the task object
+		Task newTask = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
+			
+
+
+	}
+
+	return TaskList();
+}// end readTasksFromStorage
 
 int FileParser::getNextTaskId()
 {
@@ -52,4 +92,49 @@ int FileParser::getNextTaskId()
 	}
 
 	return 0;
+}
+
+bool FileParser::saveFile(Task taskToSave)
+{
+
+
+
+	return false;
+}
+
+int FileParser::saveTasks(TaskList listToSave)
+{
+	//stream object to write
+	ofstream file;
+
+	//open the file
+	file.open("data.txt");
+
+	//Write to the file type casted to chars
+	file.write((char*)&listToSave, sizeof(listToSave));
+
+	//closes the output stream
+	file.close();
+
+
+	return 0;
+}
+
+TaskList FileParser::getTaskList()
+{
+	//Object to read from file
+	ifstream file;
+
+	//open file
+	file.open("data.txt");
+
+	//Object we're trying to get
+	TaskList tasks;
+	
+	//Read from the file
+	file.read((char*)&tasks, sizeof(tasks));
+
+	file.close();
+
+	return tasks;
 }

@@ -23,10 +23,10 @@ public:
 	int CreateTask();
 
 	/*Changes the importance level of the task*/
-	static int ChangeTaskImportanceLevel(Task task);
+	//static int ChangeTaskImportanceLevel(Task task);
 
 	/* Prints out the tasks with an option to select a task for editing */
-	int ViewTaskList();
+	//int ViewTaskList();
 
 };
 
