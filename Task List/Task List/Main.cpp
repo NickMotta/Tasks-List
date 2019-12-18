@@ -13,7 +13,7 @@ TaskList taskList;
 /* 
  
 Function returns a status code that can be interpreted where it's called */
-int createTask(int taskID) {
+int createTask() {
 	
 	//variables that are needed to create a task
 	string taskTitle, taskBody;
@@ -32,13 +32,45 @@ int createTask(int taskID) {
 
 	//create the object
 	cout << "Creating the task..." << endl;
-	Task newTask = Task();
-	
+	Task newTask = Task(taskList.retrieveLargestTaskID + 1, taskTitle, taskBody, taskImportanceLevel);
+	taskList.addTask;
+
 
 
 	return 0;	//no fault
 }	//end createTask
 
+/*  */
+int viewTasks() {
+
+	int choice;
+
+	cout << "==== View Tasks ====" << endl;
+	cout << "Enter which task list you would like to see:" << endl;
+	cout << "1 - All Tasks\t 2 - Not Started\t3 - Ongoing\t4 Completed" << endl;
+	cout << "--> ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+		taskList.printTaskSummary();
+		break;
+	case 2:
+		taskList.getNotStartedTasks().printTaskSummary();
+		break;
+	case 3:
+		taskList.getOngoingTasks().printTaskSummary();
+		break;
+	case 4:
+		taskList.getCompletedTasks().printTaskSummary();
+		break;
+	default:
+		cout << "Something went wrong!" << endl;
+	}
+
+	return 0;
+}
 
 /* Function returns a status code that can be interpreted where it's callled
 
@@ -59,11 +91,15 @@ int MainMenu() {
 	switch (choice)
 	{
 	case 1:
-		CreateTask();
-		break;
+		int result = createTask();
+		if ( result == 0 ) break;
+		else cout << "Result code: " << result << endl;		
+
 	case 2:
-		//this->ViewTaskList();
-		break;
+		int result = viewTasks();
+		if (result == 0) break;
+		else cout << "Result code: " << result << endl;
+
 	}
 
 	return 0;

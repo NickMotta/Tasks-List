@@ -46,7 +46,7 @@ class Task
         Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel, int taskStatus);
 
 		/* Constructor for task object just takes the taskID, title, body, and importance level */
-
+		Task(int taskID, string taskTitle, string taskBody, int taskImportanceLevel);
 
 
 		//Sets the task ID of the task

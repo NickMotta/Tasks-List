@@ -73,4 +73,33 @@ using namespace std;
 		return largestTaskID;
 	}
 
+	int TaskList::getTaskListLength()
+	{
+		return taskList.size;
+	}
+
+	void TaskList::printTaskSummary()
+	{
+		cout << "Task List Summary" << endl;
+		cout << "Task ID\t" << "Task Title\t" << "Task Importance" << endl;
+		for (auto &task : taskList) {
+			cout << task.getTaskID << "\t" << task.getTaskTitle << "\t";
+			switch (task.getTaskImportanceLevel()) {
+			case 0:
+				cout << "LOW" << endl;
+				break;
+			case 1:
+				cout << "MED" << endl;
+				break;
+			case 2:
+				cout << "HIGH" << endl;
+				break;
+			default :
+				cout << "OOPS!" << endl;
+				break;
+			}
+		}
+
+	}
+
  

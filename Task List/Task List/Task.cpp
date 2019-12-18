@@ -32,6 +32,16 @@ using namespace std;
         this->taskImportanceLevel = taskImportanceLevel;
 		this->taskStatus = taskStatus;
     }
+
+	Task::Task(int taskID, string taskTitle, string taskBody, int taskImportanceLevel)
+	{
+		this->taskID = taskID;
+		this->dateCreated = clock();
+		this->taskTitle = taskTitle;
+		this->taskBody = taskBody;
+		this->taskImportanceLevel = taskImportanceLevel;
+		this->taskStatus = 0;
+	}
     
     /**
      Set and Get methods

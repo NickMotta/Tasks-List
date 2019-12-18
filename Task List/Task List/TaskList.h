@@ -37,6 +37,13 @@ public:
 
 	//Reads the task list and finds the lighest taskID
 	int retrieveLargestTaskID();
+
+	//returns the length of the task list
+	int getTaskListLength();
+
+	//print tasks summary
+	void printTaskSummary();
+
     
 	//TODO: Create a function that retrieves a task given an ID
 
