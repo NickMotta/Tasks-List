@@ -34,6 +34,9 @@ public:
 
 	//Adds a task to the list.
     void addTask(Task task);
+
+	//Reads the task list and finds the lighest taskID
+	int retrieveLargestTaskID();
     
 	//TODO: Create a function that retrieves a task given an ID
 

@@ -8,9 +8,32 @@
 namespace fs = std::experimental::filesystem;
 using namespace std;
 
-/* Function returns a status code that can be interpreted where it's called */
-int createTask() {
+TaskList taskList;
 
+/* 
+ 
+Function returns a status code that can be interpreted where it's called */
+int createTask(int taskID) {
+	
+	//variables that are needed to create a task
+	string taskTitle, taskBody;
+	int taskImportanceLevel;
+
+	cout << "==== Create Task ===" << endl;
+	cout << "Enter Task Title: " << endl;
+	cout << "--> ";
+	cin >> taskTitle;
+	cout << "Enter Task Body: " << endl;
+	cout << "-->";
+	cin >> taskBody;
+	cout << "Enter Task Importance Level. Leave empty for default (low)." << endl;
+	cout << "-->";
+	cin >> taskImportanceLevel;
+
+	//create the object
+	cout << "Creating the task..." << endl;
+	Task newTask = Task();
+	
 
 
 	return 0;	//no fault

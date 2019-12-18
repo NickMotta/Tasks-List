@@ -58,4 +58,19 @@ using namespace std;
 		this->taskList.push_back(task);
     }
 
+	int TaskList::retrieveLargestTaskID()
+	{
+		int largestTaskID = 0;
+		//iterate through the taskList
+		for ( auto const& currTask : this->taskList ) {
+			//look for the largest task
+			if (currTask.getTaskID > largestTaskID) {
+				largestTaskID = currTask.getTaskID;
+			}
+
+		}
+
+		return largestTaskID;
+	}
+
  

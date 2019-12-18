@@ -45,6 +45,10 @@ class Task
 		//Constructor for task object that takes arguments for each element of the task. Assigns a status default of 0
         Task(int taskID, time_t dateCreated, string taskTitle, string taskBody, int taskImportanceLevel, int taskStatus);
 
+		/* Constructor for task object just takes the taskID, title, body, and importance level */
+
+
+
 		//Sets the task ID of the task
         void setTaskID(int taskID);
 
