@@ -39,17 +39,22 @@ using namespace std;
 
 	TaskList TaskList::getCompletedTasks()
     {
+		return TaskList();
         //list.remove_if(CompletedTasks());
     }
     
     TaskList TaskList::getOngoingTasks()
     {
+		return TaskList();
         //list.remove_if(OngoingTasks());
     }
     
     TaskList TaskList::getNotStartedTasks()
     {
         //list.remove_if(NotStartedTasks());
+
+		return TaskList();
+
     }
     
     void TaskList::addTask(Task task)
@@ -62,10 +67,10 @@ using namespace std;
 	{
 		int largestTaskID = 0;
 		//iterate through the taskList
-		for ( auto const& currTask : this->taskList ) {
+		for ( auto &currTask : this->taskList ) {
 			//look for the largest task
-			if (currTask.getTaskID > largestTaskID) {
-				largestTaskID = currTask.getTaskID;
+			if (currTask.getTaskID() > largestTaskID) {
+				largestTaskID = currTask.getTaskID();
 			}
 
 		}
@@ -75,7 +80,7 @@ using namespace std;
 
 	int TaskList::getTaskListLength()
 	{
-		return taskList.size;
+		return taskList.size();
 	}
 
 	void TaskList::printTaskSummary()
@@ -83,7 +88,7 @@ using namespace std;
 		cout << "Task List Summary" << endl;
 		cout << "Task ID\t" << "Task Title\t" << "Task Importance" << endl;
 		for (auto &task : taskList) {
-			cout << task.getTaskID << "\t" << task.getTaskTitle << "\t";
+			cout << task.getTaskID() << "\t" << task.getTaskTitle() << "\t";
 			switch (task.getTaskImportanceLevel()) {
 			case 0:
 				cout << "LOW" << endl;
@@ -100,6 +105,11 @@ using namespace std;
 			}
 		}
 
+	}
+
+	std::list<Task>::iterator TaskList::retrieveIterator()
+	{
+		return this->it;
 	}
 
  

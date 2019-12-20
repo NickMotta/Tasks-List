@@ -96,110 +96,57 @@ int FileParser::getNextTaskId()
 	return 0;
 }
 
-bool FileParser::saveFile(Task taskToSave)
+
+int FileParser::writeTasksToStorage(TaskList taskList)
 {
+	list<string> listOfFileNames = getListOfFileNames(DATA_DIRECTORY);
 
 
+	for (std::list<Task>::iterator iterator = taskList.taskList.begin(); iterator != taskList.taskList.end(); iterator++) {
+		//create a file with the read option in truncate form
+		Task myTask = *iterator;
+		ofstream offile;
+		offile.open(myTask.getTaskID() + ".txt");
 
-	return false;
-}
+		if (offile.is_open()) {
 
-int FileParser::saveTasks(TaskList listToSave)
-{
-	//stream object to write
-	ofstream file;
+			//push info into file
+			offile << myTask.getTaskID();
+			offile << myTask.getDateCreated();
+			offile << myTask.getTaskTitle();
+			offile << myTask.getTaskBody();
+			offile << myTask.getTaskImportanceLevel();
+			offile << myTask.getTaskStatus();
 
-	//open the file
-	file.open("data.txt");
-
-	//Write to the file type casted to chars
-	file.write((char*)&listToSave, sizeof(listToSave));
-
-	//closes the output stream
-	file.close();
-
+			//close the file
+			offile.close();
+		}
+		else {
+			return 1;
+		}
+	}
 
 	return 0;
+
 }
 
-TaskList FileParser::getTaskList()
-{
-	//Object to read from file
-	ifstream file;
 
-	//open file
-	file.open("data.txt");
-
-	//Object we're trying to get
-	TaskList tasks;
-	
-	//Read from the file
-	file.read((char*)&tasks, sizeof(tasks));
-
-	file.close();
-
-	return tasks;
-}
-
-int FileParser::writeTasksToStorage()
-{
-    TaskList list = TaskList();
-    list<string> listOfFileNames = getListOfFileNames(DATA_DIRECTORY);
-    
-    for (auto const& fileName : listOfFileNames) {
-    
-    //open the file
-    ofstream offile;
-    offile.open(fileName);
-        
-    //Checks if file is open
-    if(offile.is_open()){
-        //variables for the object types
-        int taskID, taskImportanceLevel, taskStatus;
-        time_t dateCreated;
-        string taskTitle, taskBody;
-
-        offile >> taskID;
-        offile >> dateCreated;
-        offile >> taskTitle;
-        offile >> taskBody;
-        offile >> taskImportanceLevel;
-        offile >> taskStatus;
-    
-        Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
-        
-        list.addTask(newTask)
-        
-        offile.close();
-        
-        return 0;
-    }
-    //Returns error for file isnt open
-    return 1;
-        
-    }
-    
-}
-
-Task FileParser::writeTask(Task task)
+int FileParser::writeTask(Task task)
 {
     //open the file
     ofstream offile;
-    offile.open(fileName);
+    offile.open(task.getTaskID() + ".txt");
         
-        //variables for the object types
-        int taskID, taskImportanceLevel, taskStatus;
-        time_t dateCreated;
-        string taskTitle, taskBody;
+	if (offile.is_open()) {
+		offile << task.getTaskID();
+		offile << task.getDateCreated();
+		offile << task.getTaskTitle();
+		offile << task.getTaskBody();
+		offile << task.getTaskImportanceLevel();
+		offile << task.getTaskStatus();
 
-        offile >> taskID;
-        offile >> dateCreated;
-        offile >> taskTitle;
-        offile >> taskBody;
-        offile >> taskImportanceLevel;
-        offile >> taskStatus;
-    
-        Task task = Task(taskID, dateCreated, taskTitle, taskBody, taskImportanceLevel, taskStatus)
-        
-        return task;
+		offile.close();
+	}
+
+    return 0;
 }

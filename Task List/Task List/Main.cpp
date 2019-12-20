@@ -9,6 +9,7 @@ namespace fs = std::experimental::filesystem;
 using namespace std;
 
 TaskList taskList;
+FileParser fp = FileParser();
 
 /* 
  
@@ -24,17 +25,17 @@ int createTask() {
 	cout << "--> ";
 	cin >> taskTitle;
 	cout << "Enter Task Body: " << endl;
-	cout << "-->";
+	cout << "--> ";
 	cin >> taskBody;
-	cout << "Enter Task Importance Level. Leave empty for default (low)." << endl;
-	cout << "-->";
+	cout << "Enter Task Importance Level ( 0-2 )." << endl;
+	cout << "--> ";
 	cin >> taskImportanceLevel;
 
 	//create the object
 	cout << "Creating the task..." << endl;
-	Task newTask = Task(taskList.retrieveLargestTaskID + 1, taskTitle, taskBody, taskImportanceLevel);
-	taskList.addTask;
-
+	Task newTask = Task(taskList.retrieveLargestTaskID() + 1, taskTitle, taskBody, taskImportanceLevel);
+	taskList.addTask(newTask);
+	fp.writeTask(newTask);
 
 
 	return 0;	//no fault
@@ -80,7 +81,7 @@ int viewTasks() {
 int MainMenu() {
 
 
-	string menuOptions = "1 - create task\t2 - view task list";
+	string menuOptions = "1 - create task\t\t2 - view task list\t3 - Exit";
 	int choice;
 
 	cout << "Main Menu" << endl;
@@ -88,20 +89,24 @@ int MainMenu() {
 	cout << "--> ";
 	cin >> choice;
 
+	int result;
 	switch (choice)
 	{
 	case 1:
-		int result = createTask();
-		if ( result == 0 ) break;
-		else cout << "Result code: " << result << endl;		
-
-	case 2:
-		int result = viewTasks();
+		result = createTask();
 		if (result == 0) break;
 		else cout << "Result code: " << result << endl;
+		break;
+	case 2:
+		result = viewTasks();
+		if (result == 0) break;
+		else cout << "Result code: " << result << endl;
+		break;
 
+	case 0:
+		return 0;
+		break;
 	}
-
 	return 0;
 }
 
@@ -123,58 +128,16 @@ void startupProcedure() {
 int main()
 {
 
-	Task test = Task();
-	test.setTaskTitle("YEET1");
-	Task test1 = Task();
-	Task test2 = Task();
-	TaskList taskList = TaskList();
-	taskList.addTask(test);
-	taskList.addTask(test1);
-	taskList.addTask(test2);
-	FileParser fileParser = FileParser();
-
-	fileParser.saveTasks(taskList);
-
-	TaskList readList = fileParser.getTaskList();
-
-	system("pause");
-
-
-
-	string DIRECTORY_PATH = fs::current_path().string();
-	DIRECTORY_PATH += "\\data\\";
-
-	for (const auto &entry : fs::directory_iterator(fs::current_path().string() + "\\data\\")) {
-		string path = entry.path().string();
-		cout << path.substr(path.rfind('\\') + 1) << endl;
-	}
-
-	//string test = system("dir");
-
-	system("pause");
-
-
+	bool continueProgram = true;
 	//program loop
-	while (true) {
-		//menu.MainMenu();
-
+	while (continueProgram) {
+		int res = MainMenu();
+		if (res == 0) {
+			continueProgram = false;
+		}
 
 	}
 
 
 
-	//fs::path path = fs::current_path();
-	//path /= "data";
-	//std::cout << fs::current_path() << std::endl;
-
-	//for (auto & p : fs::directory_iterator(path))
-	//	std::cout << p << std::endl;
-
-	//int directoryCounter;
-	//for (auto &p : fs::directory_iterator(path)) {
-	//	directoryCounter += 1;
-	//}
-
-	//std::cout << directoryCounter << std::endl;
-	//system("pause");
 }

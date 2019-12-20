@@ -11,14 +11,14 @@ class TaskList
 {
 private:
 
+
+
+
+public:
 	//A list of tasks
 	std::list<Task> taskList;
 	//An iterator for the list of tasks
 	std::list<Task>::iterator it = taskList.begin();
-
-
-public:
-
     
 	//Default constructor
 	TaskList();
@@ -43,6 +43,8 @@ public:
 
 	//print tasks summary
 	void printTaskSummary();
+
+	std::list<Task>::iterator retrieveIterator();
 
     
 	//TODO: Create a function that retrieves a task given an ID

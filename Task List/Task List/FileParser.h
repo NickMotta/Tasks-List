@@ -37,17 +37,12 @@ public:
 
 	int getNextTaskId();
 
-	//Retrieves the task object stored in memory.
-	Task retrieveFile(string filename);
+	int writeTasksToStorage(TaskList taskList);
 
-	//Saves the task to the data directory. Replaces a task saved with the current name.
-	bool saveFile(Task taskToSave);
+	int writeTask(Task task);
 
 
 	//=========================================================
 
-	int saveTasks(TaskList listToSave);
-
-	TaskList getTaskList();
 };
 
