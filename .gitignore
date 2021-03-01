@@ -1,0 +1,5 @@
+tasklist.txt
+.Task.cpp.swo
+.TaskList.cpp.swp
+.vscode/
+CMakeLists.txt
